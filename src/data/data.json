@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Voyage Hotel",
+    "image": "hotel-image.png",
+    "point": 9.8,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 2,
+    "name": "Max Royal Hotel",
+    "image": "hotel-image.png",
+    "point": 5.5,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 3,
+    "name": "Vogue Hotel",
+    "image": "hotel-image.png",
+    "point": 6.5,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 4,
+    "name": "Vogue 2 Hotel",
+    "image": "hotel-image.png",
+    "point": 7.8,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 5,
+    "name": "Max Royal 3 Hotel",
+    "image": "hotel-image.png",
+    "point": 8.5,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 6,
+    "name": "Voyage 8 Hotel",
+    "image": "hotel-image.png",
+    "point": 5.2,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 7,
+    "name": "Max Royal 5 Hotel",
+    "image": "hotel-image.png",
+    "point": 7.2,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 8,
+    "name": "Voyage 13 Hotel",
+    "image": "hotel-image.png",
+    "point": 7.4,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 9,
+    "name": "Vogue 4 Hotel",
+    "image": "hotel-image.png",
+    "point": 8.2,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 10,
+    "name": "Vogue 28 Hotel",
+    "image": "hotel-image.png",
+    "point": 0.9,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 11,
+    "name": "Vogue Max 11 Hotel",
+    "image": "hotel-image.png",
+    "point": 1.2,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  }
+]

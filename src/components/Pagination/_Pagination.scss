@@ -1,0 +1,21 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    &-item {
+        cursor: pointer;
+        margin-right: 0.75rem;
+        list-style-type: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     
+        &.active {
+            background-color: #3498db;
+            border-radius: 50%;
+            color:#fff;
+        }
+    }
+}
