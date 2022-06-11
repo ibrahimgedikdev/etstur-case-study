@@ -97,5 +97,32 @@
     "isVoted" : false,
     "createdAt": "10/06/2022 9:39",
     "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 12,
+    "name": "Beylikdüzü Hotel",
+    "image": "hotel-image.png",
+    "point": 4.5,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
+  },
+  {
+    "id": 13,
+    "name": "Beyoğlu Hotel Hotel",
+    "image": "hotel-image.png",
+    "point": 4.5,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "11/06/2022 9:39"
+  },
+  {
+    "id": 14,
+    "name": "Büyükçekmece Hotel",
+    "image": "hotel-image.png",
+    "point": 5.5,
+    "isVoted" : false,
+    "createdAt": "10/06/2022 9:39",
+    "updatedAt": "10/06/2022 9:39"
   }
 ]

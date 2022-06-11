@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import moment from "moment";
-import {HiCheck} from 'react-icons/hi'
+import { HiCheck } from "react-icons/hi";
+import HotelContext from "../../context/HotelContext";
 
-function Hotel({ hotel, hotels, setHotels }) {
-  console.log('Hotel : Render');
+function Hotel({hotel}) {
+  console.log("Hotel : Render");
+  const {hotels, setHotels} = useContext(HotelContext);
   const formattedDate = moment().format("D/MM/Y h:mm");
 
   const updatePoint = (point, type) => {
@@ -27,14 +29,15 @@ function Hotel({ hotel, hotels, setHotels }) {
     return parseFloat(result).toFixed(1);
   };
 
+
   const increasePoint = (id) => {
     const newState = hotels.map((obj) => {
       if (obj.id === id) {
         return {
           ...obj,
           isVoted: true,
-          point: updatePoint(obj.point, "increase"),
-          updatedDate: formattedDate,
+          point: parseFloat(updatePoint(obj.point, "increase")),
+          updatedAt: formattedDate,
         };
       }
       return obj;

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import HotelContext from "../../context/HotelContext";
 
-function Pagination({ paginate, totalHotels, hotelPerPage, currentPage }) {
+function Pagination() {
   console.log('Pagination : Render');
-
+  const {paginate, totalHotels, hotelPerPage, currentPage} = useContext(HotelContext);
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalHotels / hotelPerPage); i++) {

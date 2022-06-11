@@ -23,7 +23,11 @@ button {
 }
 
 @import './components/AddHotelLink/AddHotelLink';
+@import './components/AddHotelForm/AddHotelForm';
 @import './components/Dropdown/Dropdown';
 @import './components/HotelList/HotelList';
 @import './components/Hotel/Hotel';
 @import './components/Pagination/Pagination';
+@import './pages/List';
+@import './pages/AddHotel';
+

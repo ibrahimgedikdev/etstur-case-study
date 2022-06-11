@@ -1,10 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { BiSortAlt2 } from "react-icons/bi";
+import HotelContext from "../../context/HotelContext";
 import { useOnClickOutside } from "../../hooks/useClickOutside";
 
-function Dropdown({ setSortBy }) {
+function Dropdown() {
   console.log('Dropdown: Render');
-  
+  const {sortBy,setSortBy} = useContext(HotelContext);
+
   const ref = useRef();
   const [isOpen, setIsOpen] = useState(false);
   useOnClickOutside(ref, () => setIsOpen(false));
@@ -26,7 +28,7 @@ function Dropdown({ setSortBy }) {
     <div className="dropdown">
       <button className="dropdown-toggle" onClick={() => setIsOpen(!isOpen)}>
         <BiSortAlt2 size={26} color="#bdc3c7" />
-        <span>Sıralama</span>
+        <span>{(sortBy === "artan" && 'Artan') || (sortBy === "azalan" && 'Azalan') || (sortBy === "" && 'Sıralama')}</span>
       </button>
       {isOpen && (
         <div className="dropdown-menu" ref={ref}>

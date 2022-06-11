@@ -1,9 +1,12 @@
-import { createContext } from "react";
-import Data from "./data/data.json";
-
+import { createContext, useState, useEffect, useMemo } from "react";
+import Data from "../data/data.json";
 const HotelContext = createContext();
 
-const HotelProviver = () => {
+// if(!window.localStorage.getItem('hotels')){
+//   localStorage.setItem('hotels', JSON.stringify(Data));
+// }
+
+export const HotelProviver = ({ children }) => {
   const localData = JSON.parse(localStorage.getItem("hotels"));
   const [hotels, setHotels] = useState(localData || Data);
   const [currentPage, setCurrentPage] = useState(1);
@@ -11,32 +14,34 @@ const HotelProviver = () => {
   const [totalHotels] = useState(hotels.length);
   const [sortBy, setSortBy] = useState("");
 
+  let indexOfLastHotel = currentPage * hotelPerPage;
+  let indexOfFirstHotel = indexOfLastHotel - hotelPerPage;
+
   useEffect(() => {
     localStorage.setItem("hotels", JSON.stringify(hotels));
   }, [hotels]);
-
-  let indexOfLastHotel = currentPage * hotelPerPage;
-  let indexOfFirstHotel = indexOfLastHotel - hotelPerPage;
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const hotelsData = useMemo(() => {
     let computedHotels = hotels;
-    if(sortBy === ""){
+    if (sortBy === "") {
       computedHotels = hotels;
     }
-    if(sortBy === "azalan"){
-      computedHotels = hotels.sort((a,b) => {
-        return a.point - b.point
-      })
+    if (sortBy === "azalan") {
+      computedHotels = hotels.sort(
+        (a, b) =>
+          a.point - b.point || new Date(b.updatedAt) - new Date(a.updatedAt)
+      );
     }
-    if(sortBy === "artan"){
-      computedHotels = hotels.sort((a,b) => {
-        return b.point - a.point
-      })
+    if (sortBy === "artan") {
+      computedHotels = hotels.sort(
+        (a, b) =>
+          b.point - a.point || new Date(a.updatedAt) - new Date(b.updatedAt)
+      );
     }
     return computedHotels.slice(indexOfFirstHotel, indexOfLastHotel);
-  }, [hotels, sortBy, indexOfFirstHotel, indexOfLastHotel])
+  }, [hotels, sortBy, indexOfFirstHotel, indexOfLastHotel]);
 
   const values = {
     hotels,
@@ -48,7 +53,7 @@ const HotelProviver = () => {
     sortBy,
     setSortBy,
     hotelsData,
-    paginate
+    paginate,
   };
 
   return (
@@ -56,5 +61,4 @@ const HotelProviver = () => {
   );
 };
 
-
-export {HotelProviver, HotelContext};
+export default HotelContext;

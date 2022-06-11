@@ -6,7 +6,7 @@ function AddHotelLink() {
   console.log('AddHotelLink: Render');
 
   return (
-    <Link to="/add-hotel" className="add-hotel-button">
+    <Link to="/add-hotel" className="add-hotel-link">
       <div className="icon-wrapper">
       <BsPlusLg size={30} />
       </div>
