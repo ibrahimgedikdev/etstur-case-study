@@ -3,7 +3,7 @@ import moment from "moment";
 import { HiCheck } from "react-icons/hi";
 import HotelContext from "../../context/HotelContext";
 
-function Hotel({hotel}) {
+function Hotel ({hotel}) {
   console.log("Hotel : Render");
   const {hotels, setHotels} = useContext(HotelContext);
   const formattedDate = moment().format("D/MM/Y h:mm");

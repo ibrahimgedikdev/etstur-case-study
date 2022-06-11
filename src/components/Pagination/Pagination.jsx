@@ -3,6 +3,7 @@ import HotelContext from "../../context/HotelContext";
 
 function Pagination() {
   console.log('Pagination : Render');
+  
   const {paginate, totalHotels, hotelPerPage, currentPage} = useContext(HotelContext);
   const pageNumbers = [];
 
