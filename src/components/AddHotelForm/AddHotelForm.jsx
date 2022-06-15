@@ -1,11 +1,9 @@
-import React, { useContext, useState } from "react";
-import HotelContext from "../../context/HotelContext";
+import React, { useState } from "react";
 import moment from "moment";
 import { HiCheck } from "react-icons/hi";
 
-function AddHotelForm() {
+function AddHotelForm({hotels, setHotels}) {
   console.log("Add Hotel Form : Render");
-  const { hotels, setHotels } = useContext(HotelContext);
   const [name, setName] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formError, setFormError] = useState({ error: false, message: "" });

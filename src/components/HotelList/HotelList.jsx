@@ -1,20 +1,21 @@
-import React, { useContext } from 'react'
-import HotelContext from '../../context/HotelContext';
+import React from 'react'
 import Hotel from '../Hotel/Hotel';
 
-function HotelList() {
+function HotelList({sortedHotels, setHotels, hotels}) {
   console.log('HotelList : Render');
-  const {listHotels} = useContext(HotelContext);
+  
   return (
     <ul className='hotel-list'>
-        {listHotels.map((hotel) => (
+        {sortedHotels.map((hotel) => (
             <Hotel 
               key={hotel.id} 
               hotel={hotel} 
+              hotels={hotels}
+              setHotels={setHotels}
               />
         ))}
     </ul>
   )
 }
 
-export default HotelList
+export default React.memo(HotelList);

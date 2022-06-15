@@ -15,4 +15,4 @@ function AddHotelLink() {
   );
 }
 
-export default AddHotelLink;
+export default React.memo(AddHotelLink);
