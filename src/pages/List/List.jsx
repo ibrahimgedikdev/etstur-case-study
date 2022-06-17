@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import AddHotelLink from "../components/AddHotelLink/AddHotelLink";
-import Dropdown from "../components/Dropdown/Dropdown";
-import HotelList from "../components/HotelList/HotelList";
-import Pagination from "../components/Pagination/Pagination";
+import AddHotelLink from "../../components/AddHotelLink/AddHotelLink";
+import Dropdown from "../../components/Dropdown/Dropdown";
+import HotelList from "../../components/HotelList/HotelList";
+import Pagination from "../../components/Pagination/Pagination";
 
 function List({ hotels, setHotels }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,6 +34,7 @@ function List({ hotels, setHotels }) {
     }
     setSortedHotels(hotelList);
   }, [hotels, sortBy]);
+
 
   const listedHotels = sortedHotels.slice(indexOfFirstHotel, indexOfLastHotel)
 

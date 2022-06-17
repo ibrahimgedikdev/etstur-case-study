@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AddHotel from "./pages/AddHotel";
-import List from "./pages/List";
+import AddHotel from "./pages/AddHotel/AddHotel";
+import List from "./pages/List/List";
 import Data from "./data/data.json";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<List hotels={hotels} setHotels={setHotels} />} />
-          <Route path="/add-hotel" element={<AddHotel hotels={hotels}  />} />
+          <Route path="/add-hotel" element={<AddHotel hotels={hotels}  setHotels={setHotels} />} />
         </Routes>
       </BrowserRouter>
     </div>

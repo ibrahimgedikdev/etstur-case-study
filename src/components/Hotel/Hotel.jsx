@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import { HiCheck } from "react-icons/hi";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { confirm } from "../Confirm/Confirm";
 
-function Hotel ({setHotels, hotel, hotels}) {
+function Hotel({ setHotels, hotel, hotels }) {
   console.log("Hotel : Render");
 
   const formattedDate = moment().format("D/MM/Y h:mm");
@@ -28,14 +30,13 @@ function Hotel ({setHotels, hotel, hotels}) {
     return parseFloat(result).toFixed(1);
   };
 
-
   const increasePoint = (id) => {
     const newState = hotels.map((obj) => {
       if (obj.id === id) {
         return {
           ...obj,
           isVoted: true,
-          point: parseFloat(updatePoint(obj.point, "increase")),
+          point: updatePoint(obj.point, "increase"),
           updatedAt: formattedDate,
         };
       }
@@ -51,12 +52,25 @@ function Hotel ({setHotels, hotel, hotels}) {
           ...obj,
           isVoted: true,
           point: updatePoint(obj.point, "decrease"),
-          updatedDate: formattedDate,
+          updatedAt: formattedDate,
         };
       }
       return obj;
     });
     setHotels(newState);
+  };
+
+  const handleConfirm = async () => {
+    const result = await confirm('Are you sure ?','Delete', 'Cancel');
+    if(result){
+      alert('Deleted !')
+    } else {
+      alert('Not deleted !')
+    }
+  }
+
+  const deleteHotel = (id) => {
+    setHotels(hotels.filter((hotel) => hotel.id !== id));
   };
 
   return (
@@ -88,6 +102,16 @@ function Hotel ({setHotels, hotel, hotels}) {
             </button>
           </>
         )}
+        <button onClick={() => handleConfirm()} className="hotel-delete-button">
+          <AiFillCloseCircle size={28} color="#e74c3c" />
+        </button>
+        {/* {open && (
+          <div className="confirm">
+            <h6>Do you really want to delete this ?</h6>
+            <button onClick={() => deleteHotel(hotel.id)} className="delete-button">Delete</button>
+            <button onClick={() => setOpen(false)} className="cancel-button">Cancel</button>
+          </div>
+        )} */}
       </div>
     </li>
   );

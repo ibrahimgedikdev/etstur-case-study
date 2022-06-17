@@ -26,7 +26,7 @@ function Pagination({pageCount, paginate, currentPage}) {
   );
 }
 
-export default Pagination;
+export default React.memo(Pagination);
 
 
 

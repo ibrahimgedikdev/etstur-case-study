@@ -6,7 +6,8 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding: 0.5rem;
     border-radius: 0.25rem;
-
+    cursor: pointer;
+    position: relative;
     .right {
         margin-left: 1rem;
     }
@@ -68,5 +69,25 @@
                 color: #fff;
             }
         }
+    }
+    &-delete-button {
+        position: absolute;
+        top:-0.5rem;
+        right: -0.5rem;
+        background-color: transparent;
+        border: none;
+        opacity: 0;
+        cursor: pointer;
+    }
+    .confirm {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+    &:hover {
+       .hotel-delete-button {
+        opacity: 1;
+       }
     }
 }
