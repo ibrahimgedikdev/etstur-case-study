@@ -43,6 +43,8 @@ export const confirm = async (message, confirmLabel, cancelLabel) => {
 
 
     // ReactDOM.render(PortalEl, );
+    const PortalEl = React.createElement(Portal, null, ConfirmBoxEl);
+    ReactDOM.render(PortalEl, document.getElementById(mountRootId));
   }) 
 };
 
