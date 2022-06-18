@@ -2,7 +2,8 @@ import React from "react";
 import moment from "moment";
 import { HiCheck } from "react-icons/hi";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { confirm } from "../Confirm/Confirm";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 function Hotel({ setHotels, hotel, hotels }) {
   console.log("Hotel : Render");
@@ -60,18 +61,38 @@ function Hotel({ setHotels, hotel, hotels }) {
     setHotels(newState);
   };
 
-  const handleConfirm = async () => {
-    const result = await confirm('Are you sure ?','Delete', 'Cancel');
-    if(result){
-      alert('Deleted !')
-    } else {
-      alert('Not deleted !')
-    }
-  }
-
-  const deleteHotel = (id) => {
-    setHotels(hotels.filter((hotel) => hotel.id !== id));
+  const handleConfirm = (id, name) => {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="custom-ui">
+            <h3>Oteli Sil</h3>
+            <button className="custom-ui-close" onClick={onClose}><AiFillCloseCircle size={30} color="#bdc3c7" /></button>
+            <p>
+              <b>{name}</b> adlı oteli silmek istediğinize emin misiniz ?
+            </p>
+            <div className="react-confirm-buttons">
+              <button
+                onClick={() => {
+                  deleteHotel(id);
+                  onClose();
+                }}
+                className="react-confirm-accept"
+              >
+                Oteli Sil
+              </button>
+              <button onClick={onClose} className="react-confirm-cancel">
+                Vazgeç
+              </button>
+            </div>
+          </div>
+        );
+      },
+    });
   };
+
+  const deleteHotel = (id) =>
+    setHotels(hotels.filter((hotel) => hotel.id !== id));
 
   return (
     <li className="hotel">
@@ -89,29 +110,25 @@ function Hotel({ setHotels, hotel, hotels }) {
         ) : (
           <>
             <button
-              className="hotel-point-button"
+              className="hotel-point-button increase"
               onClick={() => increasePoint(hotel.id)}
             >
               Puan Arttır
             </button>
             <button
-              className="hotel-point-button"
+              className="hotel-point-button decrease"
               onClick={() => decreasePoint(hotel.id)}
             >
               Puan Azalt
             </button>
           </>
         )}
-        <button onClick={() => handleConfirm()} className="hotel-delete-button">
+        <button
+          onClick={() => handleConfirm(hotel.id, hotel.name)}
+          className="hotel-delete-button"
+        >
           <AiFillCloseCircle size={28} color="#e74c3c" />
         </button>
-        {/* {open && (
-          <div className="confirm">
-            <h6>Do you really want to delete this ?</h6>
-            <button onClick={() => deleteHotel(hotel.id)} className="delete-button">Delete</button>
-            <button onClick={() => setOpen(false)} className="cancel-button">Cancel</button>
-          </div>
-        )} */}
       </div>
     </li>
   );
