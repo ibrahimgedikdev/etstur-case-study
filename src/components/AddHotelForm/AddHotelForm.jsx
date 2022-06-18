@@ -4,6 +4,7 @@ import { HiCheck } from "react-icons/hi";
 
 function AddHotelForm({hotels, setHotels}) {
   console.log("Add Hotel Form : Render");
+  
   const [name, setName] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formError, setFormError] = useState({ error: false, message: "" });
