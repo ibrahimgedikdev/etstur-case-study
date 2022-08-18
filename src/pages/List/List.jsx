@@ -21,14 +21,14 @@ function List({ hotels, setHotels }) {
     if (sortBy === "azalan") {
       const sortedList = hotelList.sort(
         (a, b) =>
-          a.point - b.point || new Date(b.updatedAt) - new Date(a.updatedAt)
+          b.point - a.point || new Date(a.updatedAt) - new Date(b.updatedAt)
       );
       setSortedHotels(sortedList);
     }
     if (sortBy === "artan") {
       const sortedList = hotelList.sort(
         (a, b) =>
-          b.point - a.point || new Date(a.updatedAt) - new Date(b.updatedAt)
+          a.point - b.point || new Date(b.updatedAt) - new Date(a.updatedAt)
       );
       setSortedHotels(sortedList);
     }
